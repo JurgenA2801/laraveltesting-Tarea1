@@ -64,7 +64,7 @@ class Team extends Model
     public function preventTooManyUsers($user)
     {
         if($user->count() > $this->size){
-            // echo($user->count());
+            echo($user->count());
             throw new \Exception('Ohh Error');
         }
     }
