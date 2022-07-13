@@ -14,7 +14,7 @@ class Team extends Model
     public function add($user)
     {
        
-        $this->preventTooManyUsers();
+        $this->preventTooManyUsers($user);
 
         $method = $user instanceof User ? 'save' : 'saveMany';
 
@@ -61,9 +61,10 @@ class Team extends Model
         return $this->members()->count();
     }
 
-    public function preventTooManyUsers()
+    public function preventTooManyUsers($user)
     {
-        if($this->count() >= $this->size){
+        if($user->count() > $this->size){
+            // echo($user->count());
             throw new \Exception('Ohh Error');
         }
     }

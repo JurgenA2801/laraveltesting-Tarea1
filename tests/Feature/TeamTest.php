@@ -21,9 +21,9 @@ class TeamTest extends TestCase
         $user2 = User::factory()->create();
 
         $team->add($user);
-        $team->add($user2);
+        // $team->add($user2);
 
-        $this->assertEquals(2, $team->count());
+        $this->assertEquals(1, $team->count());
        
     }
     /** @test */
@@ -110,9 +110,10 @@ class TeamTest extends TestCase
 
         $users = User::factory(3)->create();
 
-        $this->expectException('Exception');
+        $this->expectException('Exception'); 
 
-        $team->add($users);
+        $team->add($users); 
+       
 
     }
 }
